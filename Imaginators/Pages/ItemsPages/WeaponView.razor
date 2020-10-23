@@ -1,0 +1,27 @@
+@page "/weapon"
+
+<div class="weapon_name font_gst">
+    Name:
+</div>
+
+@code {
+
+    private LootGenerator lg = new LootGenerator();
+    private PlayerChar pc = new PlayerChar();
+    private Weapon w = new Weapon();
+    private Armor a = new Armor();
+
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            pc.SetStartingSkills();
+            lg.GenerateLoot(pc);
+            w = lg.Weapon;
+            a = lg.Armor;
+            StateHasChanged();
+        }
+    }
+
+}

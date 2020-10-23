@@ -1,0 +1,174 @@
+ul {
+    list-style: none;
+    padding-left: 0%;
+    padding: none;
+    margin: none;
+}
+
+li {
+    background-color: #e4e4e4;
+    color: #212121;
+    list-style: none;
+    padding-left: 0%;
+    margin: none;
+    border-radius: 10px;
+    font-size: 1.3em;
+}
+
+.tab_nav {
+    position: relative;
+    height: 8%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.nav_list {
+    padding: 0px;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.nav_list_item {
+    width: 8%;
+    padding-top: .5%;
+    padding-bottom: .5%;
+    text-align: center;
+}
+
+.skills_wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.skills_content_bin {
+    background-color: #5a5a5a;
+    width: 100%;
+    height: 92%;
+    border-radius: 25px;
+    padding: 5px;
+    position: relative;
+    padding-top: 48%;
+}
+
+.skills_container { width: 1240px; height: 550px; padding: 5px; }
+
+
+
+@media only screen 
+  and (max-width: 1600px){
+
+    li {
+        background-color: #e4e4e4;
+        color: #212121;
+        list-style: none;
+        padding-left: 0%;
+        margin: none;
+        border-radius: 10px;
+        font-size: 1em;
+    }
+    
+    .tab_nav {
+        position: relative;
+        height: 8%;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    
+    .nav_list {
+        padding: 0px;
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+    }
+    
+    .nav_list_item {
+        width: 9%;
+        padding-top: .5%;
+        padding-bottom: .5%;
+        text-align: center;
+    }
+
+}
+
+@media only screen 
+  and (max-width: 1000px){
+
+    li {
+        background-color: #e4e4e4;
+        color: #212121;
+        list-style: none;
+        padding-left: 0%;
+        margin: none;
+        border-radius: 10px;
+        font-size: .75em;
+    }
+    
+    .tab_nav {
+        position: relative;
+        height: 8%;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    
+    .nav_list {
+        padding: 0px;
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+    }
+    
+    .nav_list_item {
+        width: 10%;
+        padding-top: .5%;
+        padding-bottom: .5%;
+        text-align: center;
+    }
+
+}
+
+@media only screen 
+  and (max-width: 750px){
+
+    li {
+        background-color: #e4e4e4;
+        color: #212121;
+        list-style: none;
+        padding-left: 0%;
+        margin: none;
+        border-radius: 5px;
+        font-size: .5em;
+    }
+    
+    .tab_nav {
+        position: relative;
+        height: 8%;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    
+    .nav_list {
+        padding: 0px;
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+    }
+    
+    .nav_list_item {
+        width: 10%;
+        padding-top: .5%;
+        padding-bottom: .5%;
+        text-align: center;
+    }
+
+}

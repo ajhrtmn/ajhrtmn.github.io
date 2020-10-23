@@ -1,0 +1,15 @@
+@page "/packnodes"
+
+<ul class="pack_nodes">
+    @for (var r = 0; r < 16; r++ )
+    {
+        @for (var c = 0; c < 16; c++ )
+        {
+            <li id="pack_@(r)_@(c)" class="pack_node">
+                <div class="node_div">
+                    <img src="/Media/Images/nodebg.png" />
+                </div>
+            </li>
+        }
+    }
+</ul>

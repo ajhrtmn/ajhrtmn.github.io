@@ -1,0 +1,24 @@
+<div class="HUD quest_details noselect">
+    <img class="round" src="/Media/Images/round.png"/>
+    <div class="round_count font_gst">@(round)</div>
+    <div class="quest_title font_gst">@(title)</div>
+    <div class="difficulty font_rubik">Tier @(diff_tier) - Level @(diff_lvl)</div>
+    <div class="quest_time font_gst">00:01:23</div>
+    <div class="turn_order_label font_gst">Turn Order:</div>
+    <ul class="turn_order_list">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+
+@code {
+    private double round = 25;
+    private string title = "The Long Night";
+    private double diff_tier = 1;
+    private double diff_lvl = 1;
+
+}

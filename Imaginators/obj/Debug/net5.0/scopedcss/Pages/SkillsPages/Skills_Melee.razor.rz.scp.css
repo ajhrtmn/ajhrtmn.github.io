@@ -1,0 +1,89 @@
+ul[b-5niuquqkjv] {
+    list-style: none;
+    padding-left: 0%;
+    padding: none;
+    margin: none;
+}
+
+li[b-5niuquqkjv] {
+    list-style: none;
+    padding-left: 0%;
+    margin: none;
+}
+
+.skills_container[b-5niuquqkjv] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.skills_quad[b-5niuquqkjv] {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 5px;
+}
+
+.quad_container[b-5niuquqkjv] {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.q1[b-5niuquqkjv] { flex-direction: row; }
+.q2[b-5niuquqkjv] { flex-direction: row; }
+.q3[b-5niuquqkjv] { flex-direction: row; }
+.q4[b-5niuquqkjv] { flex-direction: row; }
+
+
+.quad_stat[b-5niuquqkjv] {
+    background-color: #212121;
+    color: white;
+    width: 90%;
+    height: 50%;
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 2.5%;
+}
+
+.quad_content[b-5niuquqkjv] {
+    width: 90%;
+    height: 45%;
+}
+
+.quad_skills_and_perks[b-5niuquqkjv] {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 80%;
+}
+
+.quad_skills[b-5niuquqkjv], .quad_perks[b-5niuquqkjv] {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 20%;
+}
+
+.node_div[b-5niuquqkjv] {
+    color: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin: 2%;
+    background-image: url("/Media/Images/nodebg.png");
+}

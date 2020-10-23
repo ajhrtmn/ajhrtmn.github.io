@@ -1,0 +1,110 @@
+<div style="position: fixed;top: 0;left: 0;">
+    
+
+<div class="modal_container @(unloaded)" @onmousedown:preventDefault @onclick:preventDefault @onmousedown="ModalClosed">
+    <div class="modal_wrapper" @onmousedown:preventDefault @onclick:preventDefault @onmouseover="ModalHover" @onmouseout="ModalLeave">
+        @* <div @onmousedown:preventDefault @onclick:preventDefault @onmousedown="ModalClosed" @onmouseover="ExitHover" @onmouseout="ExitLeave" class="exit_button @(exit_style)">
+            <div @onmousedown:preventDefault @onclick:preventDefault class="@(exit_style)">X</div>
+        </div> *@
+        <div class="modal_content">
+            @(content)
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+
+
+@code {
+    [Parameter] public EventCallback<int> OnModalClosed { get; set; }
+    
+    [Parameter] public string Name { get; set; }
+
+    private string unloaded = "unloaded";
+    private string exit_style = "exit_leave";
+    private bool in_menu = false;
+    private bool modal_hover = false;
+
+
+    private void ExitHover(MouseEventArgs e)
+    {
+        exit_style = "exit_hover";
+        modal_hover = false;
+
+    }
+
+    private void ExitLeave(MouseEventArgs e)
+    {
+        exit_style = "exit_leave";
+
+    }
+
+    private void ModalHover(MouseEventArgs e)
+    {
+        modal_hover = true;
+    }
+
+    private void ModalLeave(MouseEventArgs e)
+    {
+        modal_hover = false;
+    }
+
+    protected async Task ModalClosed(MouseEventArgs e)
+    {
+        if ( modal_hover != true )
+        {
+            in_menu = false;
+            content = null;
+            unloaded = " unloaded";
+            await OnModalClosed.InvokeAsync();
+            StateHasChanged();
+        }
+
+        if ( exit_style == "exit_hover" )
+        {
+            in_menu = false;
+            content = null;
+            unloaded = " unloaded";
+            await OnModalClosed.InvokeAsync();
+            StateHasChanged();
+        }
+        
+    }
+
+    public void SetModalContent()
+    {
+        if ( in_menu != true )
+        {
+            in_menu = true;
+            unloaded = "";
+            StateHasChanged();
+        }
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            switch ( Name )
+            {
+                case "challenges": content = @<Popover_Challenges />; break;
+                case "skills": content = @<SkillsView />; break;
+                case "pack": content = @<PackView />; break;
+
+                case "ZoneActions": content = @<Zone_ZoneAction />; break;
+                case "Teleport": content = @<Zone_Teleport />; break;
+                case "Spawn": content = @<Zone_Spawn />; break;
+                case "Actors": content = @<Zone_Actors />; break;
+                case "Loot": content = @<Zone_Loot />; break;
+                case "Trap": content = @<Zone_Trap />; break;
+                case "Objective": content = @<Zone_Objective />; break;
+
+            }
+            SetModalContent();
+        }
+    }
+    private RenderFragment content;
+
+}

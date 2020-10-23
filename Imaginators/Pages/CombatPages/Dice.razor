@@ -1,0 +1,31 @@
+<div class="shell @(outcome)">
+    <img class="@(outcome)_mark" src="/Media/Images/@(mark).png">
+</div>
+
+@code{
+    [Parameter] public double DiceID { get; set; }
+    private DieRoll ThisDieRoll;
+    private string outcome;
+    private string mark;
+
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            ThisDieRoll = new DieRoll();
+            if ( ThisDieRoll.ThisDie.Face == DieRoll.Face.Hit )
+            {
+                outcome = "hit";
+                mark = "big_hit_black";
+            }
+            else
+            {
+                outcome = "miss";
+                mark = "big_miss_white";
+            }
+        }
+    }
+
+
+}

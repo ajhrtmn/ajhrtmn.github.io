@@ -1,0 +1,24 @@
+.item {
+    background-color: rgba(0, 132, 255, 0.199);
+    border: 3px; border-radius: 5px; border-style: solid;
+    border-color: rgba(255, 255, 255, 0.39);
+    position: absolute; top: 2px; left: 2px;
+    margin-bottom: 4px;
+    margin-right: 4px;
+    z-index: 5;
+}
+.rotator {
+    background-color: royalblue;
+    position: absolute; top: 2px; left: 2px;
+    width: 25px; height: 25px;
+}
+
+.rotated { transform: rotate(90); }
+
+.W1 { width: 27px; } .W2 { width: 58px; } .W3 { width: 88px; }
+.W4 { width: 119px; } .W5 { width: 150px; } .W6 { width: 181px; }
+.W7 { width: 211px; } .W8 { width: 242px; }
+
+.H1 { height: 26px; } .H2 { height: 56px; } .H3 { height: 86px; }
+.H4 { height: 116px; } .H5 { height: 146px; } .H6 { height: 176px; }
+.H7 { height: 206px; } .H8 { height: 236px; }

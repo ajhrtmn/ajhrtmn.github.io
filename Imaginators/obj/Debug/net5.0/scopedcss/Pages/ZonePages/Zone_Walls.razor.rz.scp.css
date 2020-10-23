@@ -1,0 +1,16 @@
+li[b-jrszhe97ub] {
+    list-style: none;
+}
+
+.direction[b-jrszhe97ub] {
+    position: absolute;
+    background-color: #6a6a6a;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, .3);
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.North[b-jrszhe97ub] { top: -30px; width: 400px; height: 30px; }
+.South[b-jrszhe97ub] { bottom: -30px; width: 400px; height: 30px; }
+.East[b-jrszhe97ub] { right: -30px; width: 30px; height: 400px; }
+.West[b-jrszhe97ub] { left: -30px; width: 30px; height: 400px; }

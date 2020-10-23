@@ -1,0 +1,26 @@
+<div class="HUD char_head noselect" style="border-color:#@(player_color);">
+    <div class="avatar">
+        <img class="avatar_shade" src="/Media/Images/avatar_shade.png"/>
+        <img src="/Media/Images/@(char_avatar).png"/>
+    </div>
+    <div class="char_name font_gst">
+        @(char_name)
+    </div>
+    <div class="char_data font_gst">
+        <div class="char_exp">EXP: @(char_exp)</div>
+        <div class="char_lvl">LVL: @(char_level)</div>
+    </div>
+    <div class="settings">
+        <img src="/Media/Images/settings.png"/>
+    </div>
+</div>
+
+<HUD_Menus />
+
+@code {
+    private string player_color = "999";
+    private string char_avatar = "dude";
+    private string char_name = "Jimothy Winston";
+    private double char_exp = 12345;
+    private double char_level = 42;
+}

@@ -1,0 +1,45 @@
+<ul class="HUD stats noselect">
+    <li @onmousedown="@(e => PopoverUp(e, "challenges"))">
+        <UI_Popover_Button Title="@("challenges")"/>
+    </li>
+    <li @onmousedown="@(e => PopoverUp(e, "skills"))">
+        <UI_Popover_Button Title="@("skills")"/>
+    </li>
+    <li @onmousedown="@(e => PopoverUp(e, "pack"))">
+        <UI_Popover_Button Title="@("pack")"/>
+    </li>
+</ul>
+<ul class="HUD hot_swap noselect">
+    <li @onmousedown="@(e => PopoverUp(e, "pack"))">
+        <UI_Popover_Button Title=""/>
+    </li>
+    <li @onmousedown="@(e => PopoverUp(e, "pack"))">
+        <UI_Popover_Button Title=""/>
+    </li>
+    <li @onmousedown="@(e => PopoverUp(e, "pack"))">
+        <UI_Popover_Button Title="lock"/>
+    </li>
+    <li @onmousedown="@(e => PopoverUp(e, "pack"))">
+        <UI_Popover_Button Title="lock"/>
+    </li>
+</ul>
+
+@to_render
+
+@code {
+
+    private RenderFragment to_render;
+    private RenderFragment reset = null;
+
+    private void PopoverUp(MouseEventArgs e, String s)
+    {
+
+        to_render = @<LargeModal OnModalClosed="CloseModal" Name="@(s)"/>;
+
+    }
+
+    private void CloseModal()
+    {
+        to_render = reset;
+    }
+}

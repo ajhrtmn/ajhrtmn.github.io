@@ -1,0 +1,40 @@
+<div class="skills_wrapper">
+
+    <div>
+        <div class="tab_nav">
+            <ul class="nav_list font_rubik">
+                <li class="nav_list_item" @onmousedown="@(e => ClickedMenu(e, "Stats"))">Stats</li>
+                <li class="nav_list_item" @onmousedown="@(e => ClickedMenu(e, "Elemental"))">Elements</li>
+                <li class="nav_list_item" @onmousedown="@(e => ClickedMenu(e, "Combat"))">Combat</li>
+                <li class="nav_list_item" @onmousedown="@(e => ClickedMenu(e, "Utility"))">Utility</li>
+                <li class="nav_list_item" @onmousedown="@(e => ClickedMenu(e, "Armor"))">Armor</li>
+                <li class="nav_list_item" @onmousedown="@(e => ClickedMenu(e, "Ranged"))">Ranged</li>
+                <li class="nav_list_item" @onmousedown="@(e => ClickedMenu(e, "Melee"))">Melee</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="skills_content_bin">
+        @(content)
+    </div>
+
+</div>
+
+
+@code {
+    private RenderFragment content = @<Skills_Stats />;
+
+    private void ClickedMenu(MouseEventArgs e, String s)
+    {
+        switch ( s )
+        {
+            case "Stats": content = @<Skills_Stats />; break;
+            case "Elemental": content = @<Skills_Elemental />; break;
+            case "Combat": content = @<Skills_Combat />; break;
+            case "Utility": content = @<Skills_Utility />; break;
+            case "Armor": content = @<Skills_Armor />; break;
+            case "Ranged": content = @<Skills_Ranged />; break;
+            case "Melee": content = @<Skills_Melee />; break;
+        }
+    }
+}

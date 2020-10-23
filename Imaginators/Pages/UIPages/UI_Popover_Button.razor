@@ -1,0 +1,23 @@
+<div @onmousedown:preventDefault @onclick:preventDefault  @onmouseover="Hover" @onmousedown="Click" @onmouseup="Reset" @onmouseout="Reset" class="ui_button_overlay" style="@(btn_color)">
+    <img class="@(Title)" src="/Media/Images/@(Title).png"/>
+</div>
+
+@code {
+
+    [Parameter]
+    public string Title { get; set; }
+
+    private string btn_color = "background-color: rgba(75, 75, 75, 0.80)";
+
+    private void Hover(MouseEventArgs e)
+    { btn_color = "background-color: rgba(150, 150, 150, 0.80)"; }
+    private void Click(MouseEventArgs e)
+    { btn_color = "background-color: rgba(150, 10, 10, 0.80)"; }
+    private void Reset(MouseEventArgs e)
+    { btn_color = "background-color: rgba(75, 75, 75, 0.80)"; }
+
+    private void Closed()
+    {
+
+    }
+}    

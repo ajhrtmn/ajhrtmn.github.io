@@ -1,0 +1,92 @@
+@page "/loot"
+
+@if(lg.Item.ItemType == Item.ItemTypes.Weapon)
+{
+    <div class="weapon_name font_gst">
+        <div>Name: @(w.Name)</div>
+        @if( w.IsLucky != false )
+        {
+            <div>Is Lucky</div>
+            <div>Icon 1: @(w.LuckyIconID_01)</div>
+            <div>Icon 2: @(w.LuckyIconID_02)</div>
+            <div>Icon 3: @(w.LuckyIconID_03)</div>
+        }
+        @if( w.IsErratic != false )
+        {
+            <div>Is Erractic</div>
+        }
+        <div>Width: @(w.Width)</div>
+        <div>Height: @(w.Height)</div>
+        <div>Manufacture: @(w.Manufacturer)</div>
+        <div>Rarity: @(w.Rarity)</div>
+        <div>Quality: @(w.Quality)</div>
+        <div>Type: @(w.Type)</div>
+        @if ( w.IsExplosive == true ) { <div>Explosion Rate: @(w.ExplosionRate)</div> }
+        @if ( w.Type == Weapon.WeaponTypes.Melee ) { <div>Subtype: @(w.Melee)</div> }
+        @if ( w.Type == Weapon.WeaponTypes.Ranged ) { <div>Subtype: @(w.Ranged)</div> }
+        @if ( w.Type == Weapon.WeaponTypes.Thrown ) { <div>Subtype: @(w.Thrown)</div> }
+        <div>@(w.CapacityType) Size: @(w.Capacity)</div>
+        <div>@(w.UseType) Cost: @(w.DicePerAttack)</div>
+        <div>@(w.CooldownType) Rate: @(w.ReplenishRate)</div>
+        <div>Damage Per Hit: @(w.Damage)</div>
+        <div>Total Potential Damage: @(w.Damage * w.DicePerAttack)</div>
+        <div>Damage Type: @(w.DamageType)</div>
+        <div>Accuracy: @(w.MinAccuracy)% - @(w.MaxAccuracy)%</div>
+        <div>Range: @(w.MinRange) - @(w.MaxRange)</div>
+        <div>Movement Penalty: @(w.MovementPenalty)</div>
+        <div>Standard Penalty: @(w.StandardPentaly)</div>
+    </div>
+}
+
+@if(lg.Item.ItemType == Item.ItemTypes.Armor)
+{
+    <div class="weapon_name font_gst">
+        <div>Name: @(a.Name)</div>
+        <div>HP: @(a.HP)</div>
+        @if( a.IsLucky != false )
+        {
+            <div>Is Lucky</div>
+        }
+        @if( a.IsErratic != false )
+        {
+            <div>Is Erractic</div>
+        }
+        <div>Has Regen: @(a.HasRegen)</div>
+        <div>Regen Rate: @(a.RegenRate)</div>
+        <div>Location: @(a.Location)</div>
+        <div>Width: @(a.Width)</div>
+        <div>Height: @(a.Height)</div>
+        <div>Manufacture: @(a.Manufacturer)</div>
+        <div>Rarity: @(a.Rarity)</div>
+        <div>Quality: @(a.Quality)</div>
+        <div>Max Armor: @(a.MaxArmor)</div>
+        <div>Recharge Rate: @(a.RechargeRate)</div>
+        <div>Movement Penalty: @(a.MovementPenalty)</div>
+        <div>Standard Penalty: @(a.StandardPentaly)</div>
+        <div>Movement Bonus: @(a.MovementBonus)</div>
+        <div>Standard Bonus: @(a.StandardBonus)</div>
+    </div>
+}
+
+
+@code {
+
+    private LootGenerator lg = new LootGenerator();
+    private PlayerChar pc = new PlayerChar();
+    private Weapon w = new Weapon();
+    private Armor a = new Armor();
+
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            pc.SetStartingSkills();
+            lg.GenerateLoot(pc);
+            w = lg.Weapon;
+            a = lg.Armor;
+            StateHasChanged();
+        }
+    }
+
+}

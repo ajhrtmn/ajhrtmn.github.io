@@ -1,0 +1,51 @@
+@page "/tac"
+
+<div class="tactarget">
+
+    <div class="tactarget_guybox @(guy_animation)">
+
+    </div>
+    <div class="tactarget_options">
+        <div @onmouseup="@(e => SwitchPart(e, BodyParts.Head))" class="tt_option">Head</div>
+        <div @onmouseup="@(e => SwitchPart(e, BodyParts.Body))" class="tt_option">Body</div>
+        <div @onmouseup="@(e => SwitchPart(e, BodyParts.Arms))" class="tt_option">Arms</div>
+        <div @onmouseup="@(e => SwitchPart(e, BodyParts.Legs))" class="tt_option">Legs</div>
+    </div>
+
+</div>
+
+
+@code{
+
+    public BodyParts SelectedPart;
+    private string guy_animation = "";
+
+    public enum BodyParts { Head, Body, Arms, Legs }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            SelectedPart = BodyParts.Body;
+            SetAnimation(SelectedPart);
+        }
+    }
+
+    private void SetAnimation(BodyParts b)
+    {
+        if ( b ==  BodyParts.Body ) { guy_animation = "body_anim"; }
+        if ( b ==  BodyParts.Head ) { guy_animation = "head_anim"; }
+        if ( b ==  BodyParts.Arms ) { guy_animation = "arms_anim"; }
+        if ( b ==  BodyParts.Legs ) { guy_animation = "legs_anim"; }
+    }
+
+
+    private void SwitchPart(MouseEventArgs e, BodyParts b)
+    {
+        SelectedPart = b;
+        SetAnimation(b);
+        StateHasChanged();
+    }
+
+
+}

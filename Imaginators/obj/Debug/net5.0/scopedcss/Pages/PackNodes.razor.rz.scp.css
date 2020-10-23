@@ -1,0 +1,43 @@
+.pack_nodes[b-7i53rqolhv] {
+    list-style: none;
+    padding: none;
+    margin: none;
+    width:800px;
+    height:800px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+ul[b-7i53rqolhv] {
+    padding-left: 0%;
+    padding: none;
+    margin: none;
+}
+
+li[b-7i53rqolhv] {
+    padding-left: 0%;
+    padding: none;
+    margin: none;
+}
+
+.pack_node[b-7i53rqolhv] {
+    width: 6.25%;
+    height: 6.25%;
+    padding: none;
+    margin: none;
+}
+
+.node_div[b-7i53rqolhv] {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.node_div img[b-7i53rqolhv] {
+    width: 90%;
+    border-radius: 10px;
+}

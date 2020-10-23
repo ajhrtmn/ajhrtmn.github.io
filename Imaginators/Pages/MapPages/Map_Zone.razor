@@ -1,0 +1,140 @@
+<ul class="zone_content noselect">
+    <li class="action_box">
+        <div @onmousedown:preventDefault @onclick:preventDefault class="seg_button zone_button"
+        @onmousedown="HasClicked" @onmouseout="NullClick" @onmouseup="@(e => PopoverUp(e, "ZoneAction"))">
+            Zone Action
+        </div>
+    </li>
+    <li class="action_box">
+        <div @onmousedown:preventDefault @onclick:preventDefault class="seg_button zone_button"
+        @onmousedown="HasClicked" @onmouseout="NullClick" @onmouseup="@(e => PopoverUp(e, "Teleport"))">
+            Teleport
+        </div>
+    </li>
+    <li class="action_box">
+        <div @onmousedown:preventDefault @onclick:preventDefault class="seg_button zone_button"
+        @onmousedown="HasClicked" @onmouseout="NullClick" @onmouseup="@(e => PopoverUp(e, "Spawn"))">
+            Spawn
+        </div>
+    </li>
+    <li class="action_box char_list">
+        <div @onmousedown:preventDefault @onclick:preventDefault class="seg_button zone_button"
+        @onmousedown="HasClicked" @onmouseout="NullClick" @onmouseup="@(e => PopoverUp(e, "Actors"))">
+            CharList
+        </div>
+    </li>
+    <li class="action_box mob_list">
+        <div @onmousedown:preventDefault @onclick:preventDefault class="seg_button zone_button"
+        @onmousedown="HasClicked" @onmouseout="NullClick" @onmouseup="@(e => PopoverUp(e, "Actors"))">
+            MOBList
+        </div>
+    </li>
+    <li class="action_box">
+        <div @onmousedown:preventDefault @onclick:preventDefault class="seg_button zone_button"
+        @onmousedown="HasClicked" @onmouseout="NullClick" @onmouseup="@(e => PopoverUp(e, "Loot"))">
+            Loot
+        </div>
+    </li>
+    <li  class="action_box">
+        <div @onmousedown:preventDefault @onclick:preventDefault class="seg_button zone_button"
+        @onmousedown="HasClicked" @onmouseout="NullClick" @onmouseup="@(e => PopoverUp(e, "Trap"))">
+            Trap
+        </div>
+    </li>
+    <li class="action_box">
+        <div @onmousedown:preventDefault @onclick:preventDefault class="seg_button zone_button"
+        @onmousedown="HasClicked" @onmouseout="NullClick" @onmouseup="@(e => PopoverUp(e, "Objective"))">
+            Objective
+        </div>
+    </li>
+    
+    <li class="north direction" style="background-color:@(n_style);"></li>
+    <li class="south direction" style="background-color:@(s_style);"></li>
+    <li class="east direction" style="background-color:@(e_style);"></li>
+    <li class="west direction" style="background-color:@(w_style);"></li>
+
+</ul>
+
+@to_render
+
+@code {
+    [Parameter] public string NorthType { get; set; }
+    [Parameter] public string SouthType { get; set; }
+    [Parameter] public string EastType { get; set; }
+    [Parameter] public string WestType { get; set; }
+
+    private string n_style = "";
+    private string s_style = "";
+    private string e_style = "";
+    private string w_style = "";
+
+    private Zone this_zone = new Zone();
+    
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            this_zone.North.WallType = NorthType;
+
+            if ( NorthType == "Open" ) { n_style = "rgba(47, 79, 79, 0.333)"; }
+            else if ( NorthType == "Solid" ) { n_style = "slategrey"; }
+            else if ( NorthType == "Doorway" ) { n_style = "burlywood"; }
+
+            this_zone.South.WallType = SouthType;
+
+            if ( SouthType == "Open" ) { s_style = "rgba(47, 79, 79, 0.333)"; }
+            else if ( SouthType == "Solid" ) { s_style = "slategrey"; }
+            else if ( SouthType == "Doorway" ) { s_style = "burlywood"; }
+
+            this_zone.East.WallType = EastType;
+
+            if ( EastType == "Open" ) { e_style = "rgba(47, 79, 79, 0.333)"; }
+            else if ( EastType == "Solid" ) { e_style = "slategrey"; }
+            else if ( EastType == "Doorway" ) { e_style = "burlywood"; }
+
+            this_zone.West.WallType = WestType;
+
+            if ( WestType == "Open" ) { w_style = "rgba(47, 79, 79, 0.333)"; }
+            else if ( WestType == "Solid" ) { w_style = "slategrey"; }
+            else if ( WestType == "Doorway" ) { w_style = "burlywood"; }
+
+            StateHasChanged();
+        }
+    }
+
+    [Parameter] public string EnteredFrom { get; set; }
+
+    private string unloaded = " unloaded";
+    private bool in_menu = false;
+    private bool nullify_click = false;
+    private bool has_clicked = false;
+    
+    private RenderFragment to_render;
+    private RenderFragment reset = null;
+
+    private void NullClick(MouseEventArgs e) { if ( has_clicked == true ) { nullify_click = true; } }
+
+    private void HasClicked(MouseEventArgs e) {
+        if ( in_menu == false) { nullify_click = false; has_clicked = true; } }
+
+    private void CloseModal()
+    {
+        to_render = reset;
+        in_menu = false;
+        nullify_click = false;
+        has_clicked = false;
+    }
+
+    private void PopoverUp(MouseEventArgs e, String s)
+    {
+        if ( nullify_click != true )
+        {
+            in_menu = true;
+            nullify_click = true;
+            has_clicked = true;
+
+            to_render = @<LargeModal OnModalClosed="CloseModal" Name="@(s)"/>;
+        }
+    }
+}

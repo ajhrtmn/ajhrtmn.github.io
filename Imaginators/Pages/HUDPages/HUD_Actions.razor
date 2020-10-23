@@ -1,0 +1,42 @@
+<div class="actions font_gst">
+    <ul>
+        <li style="background-color: unset;"><img src="/Media/Images/HP.png"/></li>
+        <li class="health"><p class="@(status)"> @pc.hp.Current / @pc.hp.Max</p></li>
+        <li style="background-color: unset;"><img src="/Media/Images/Standard.png"/></li>
+        <li>@pc.actions.standard.Current</li>
+        <li style="background-color: unset;"><img src="/Media/Images/Move.png"/></li>
+        <li> @pc.actions.movement.Current</li>
+        <li style="background-color: unset;"></li>
+        <li style="margin-right:5px;">End Turn</li>
+    </ul>
+</div>
+
+@code {
+    private PlayerChar pc = new PlayerChar();
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            pc.hp.Current = 123;
+            pc.hp.Max = 123;
+            pc.armor.Current = 200;
+            pc.armor.Max = 200;
+            pc.actions.movement.Current = 3;
+            pc.actions.standard.Current = 3;
+        }
+    }
+
+    private string status = "full";
+
+    private void UpdateStatus()
+    {
+        var v = pc.hp.Max*(2/3);
+        var z = pc.hp.Max*(1/3);
+
+        if ( pc.hp.Current > v ) { status = "full"; }
+        if ( ( pc.hp.Current < v ) && ( pc.hp.Current > z ) ) { status = "low"; }
+        if ( pc.hp.Current < z ) { status = "danger"; }
+    }
+
+}

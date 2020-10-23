@@ -1,0 +1,119 @@
+@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+
+
+html, body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #212121; height: 100vh; overflow: hidden;
+    cursor: url('/Media/Images/Pointer.png'), auto;	
+}
+
+a, .btn-link { color: #888888; }
+
+.btn-primary {
+    color: #fff; background-color: #999999; border-color: #555555; 
+}
+
+.btn-primary:hover {
+    color: #fff; background-color: #777777; border-color: #555555;
+}
+
+.content { padding-top: 0; }
+
+.valid.modified:not([type=checkbox]) { outline: 1px solid #26b050; }
+
+.invalid { outline: 1px solid red; }
+
+.validation-message { color: red; }
+
+#blazor-error-ui {
+    background: lightyellow;
+    display: none; bottom: 0; left: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed; width: 100%;  z-index: 1000;
+}
+
+    #blazor-error-ui .dismiss {
+        cursor: pointer; position: absolute; right: 0.75rem; top: 0.5rem;
+    }
+
+.font_gst { color: #fff; font-family: 'Grandstander'; }
+
+.font_rubik { font-family: 'Rubik', sans-serif; color: #fff; }
+
+.HUD { position: absolute; z-index: 2; }
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+
+.unloaded { visibility: hidden; display: none; }
+
+.popover_section {
+    position: relative;
+    top: -50px;
+    border-radius: 25px;
+    background-color: #cfcfcf;
+    box-shadow: 5px 5px 10px #333;
+    max-height: 620px; max-width: 1300px;
+}
+
+.popover_full { width: 100%; height: 100%; }
+
+.popover_heading {
+    position: relative; top: 7px; left: 20px;
+    color: #212121; font-weight: 300; font-size: 2em;
+}
+
+.popover_content {
+    position: relative; left: 30px;
+    background-color: #6a6a6a;  border-radius: 15px;
+}
+
+.popover_left { width: 624px; height: 100%; }
+
+.popover_right {
+    position: relative; top: -670px; left: 676px;
+    width: 624px; height: 100%;
+}
+
+.exit_button {
+    background-color: #212121;
+    position: absolute; left: 0px; top: 0px;
+    width: 43px; height: 43px;
+    border-radius: 10px; border-width: 3px; border-style: solid; border-color: #aacb13;
+    display: flex; justify-content: center; align-items: center;
+}
+
+.exit_button div { color: white; font-size: 1.5em; font-weight: 500; }
+
+.popover_ui {
+    background-color: #21212180;
+    position: fixed; top: 0px; left: 0px;
+    width: 100%; height: 100vh; z-index: 20;
+    display: flex; justify-content: center; align-items: center;
+}
+
+.popover_position { display: block; width: 1300px; height: 620px; }
+
+.seg_button { width: 100%; height: 100%; }
+
+*::-webkit-scrollbar-track {
+    background-color: #00000000; background-clip: padding-box;
+    border: 5px solid #00000000; border-right: 0px;
+}
+
+*::-webkit-scrollbar { width: 15px; background-color: #00000000; }
+
+*::-webkit-scrollbar-track-piece { border: 5px solid #00000000; border-right: 0px; z-index: 10; }
+
+*::-webkit-scrollbar-thumb {
+    background-color: #aacb13; background-clip: padding-box;
+    border: 10px solid #00000000; border-right: 0px;
+}

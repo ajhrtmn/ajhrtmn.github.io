@@ -1,0 +1,28 @@
+@page "/foeview"
+
+<div class="font_gst" style="color: white; font-size: 1.5em;">Name: @(cf.Foe.Name) </div>
+<div class="font_gst" style="color: white; font-size: 1.5em;">Faction: @(cf.Foe.Faction) </div>
+<div class="font_gst" style="color: white; font-size: 1.5em;">HP: @(cf.hp.Current) / @(cf.hp.Max) </div>
+<div class="font_gst" style="color: white; font-size: 1.5em;">Armor: @(cf.armor.Current) / @(cf.armor.Max) </div>
+<div class="font_gst" style="color: white; font-size: 1.5em;">Damage Per Hit: @(cf.Foe.Damage) </div>
+<div class="font_gst" style="color: white; font-size: 1.5em;">Dice Per Attack: @(cf.Foe.DicePerAttack) </div>
+<div class="font_gst" style="color: white; font-size: 1.5em;">Accuracy: @(cf.Foe.Accuracy)% </div>
+<div class="font_gst" style="color: white; font-size: 1.5em;">Range: @(cf.Foe.Range_Low) - @(cf.Foe.Range_High) </div>
+<div class="font_gst" style="color: white; font-size: 1.5em;">Movement: @(cf.Foe.Movement) </div>
+<div class="font_gst" style="color: white; font-size: 1.5em;">Standard: @(cf.Foe.Standard) </div>
+
+@code{
+
+    public PlayerChar pc = new PlayerChar();
+    public CreateFoe cf = new CreateFoe();
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if ( firstRender )
+        {
+            pc.SetStartingSkills();
+            cf.CreateFoeVitals(pc);
+            StateHasChanged();
+        }
+    }
+}

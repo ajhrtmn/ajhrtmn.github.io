@@ -1,0 +1,77 @@
+ul {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    padding: none;
+    margin: none;
+    background-color: rgba(201, 201, 201, 0.808);
+    border-radius: 10px;
+    position: absolute;
+    overflow: hidden;
+}
+
+li {
+    background-color: rgba(49, 49, 49, 0.808);
+    width: 50px;
+    height: 50px;
+    list-style: none;
+    padding: none;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hot_swap {
+    bottom: 35px;
+    left: 240px;
+    height: 64px;
+    width: 230px;
+}
+
+.hot_swap li {  margin: 5px; margin-left: -32px; margin-right: 37px; }
+.hot_swap li:last-child { margin-right: 0px; }
+
+.hot_slot_01, .hot_slot_02,
+.hot_slot_03, .hot_slot_04 { width: 30px; height: 30px; }
+
+
+.stats {
+    bottom: 225px;
+    left: 50px;
+    width: 64px;
+    height: 180px;
+}
+.stats li { margin-left: -33px; }
+
+.challenges, .pack, .skills { width: 30px; height: 30px; }
+
+
+@media only screen 
+  and (min-width: 320px) 
+  and (max-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    .stats, .hot_swap {
+        transform: scale(.75,.75);
+    }
+
+    .hot_swap {
+        bottom: 42px;
+        left: 104px;
+        height: 64px;
+        width: 230px;
+    }
+
+    .stats {
+        bottom: -12px;
+        left: 104px;
+        height: 64px;
+        width: 230px;
+    }
+
+    .stats li { margin-left: -13px; margin-right: 26px; padding: 0px; }
+
+}

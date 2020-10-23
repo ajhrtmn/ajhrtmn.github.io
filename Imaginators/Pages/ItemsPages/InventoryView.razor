@@ -1,0 +1,80 @@
+@page "/inventory"
+
+<div style="display: flex;">
+
+<div>
+<div class="font_gst">Holsters:</div>
+<ul class="font_gst">
+@foreach (var w in holsters)
+{
+    <li>
+        <div>@(w.Weapon.Name)</div>
+        <div>@(w.Weapon.CapacityType) Size: @(w.Weapon.Capacity)</div>
+        <div>@(w.Weapon.UseType) Cost: @(w.Weapon.DicePerAttack)</div>
+        <div>@(w.Weapon.CooldownType) Rate: @(w.Weapon.ReplenishRate)</div>
+        <div>Damage Per Hit: @(w.Weapon.Damage)</div>
+        <div>Accuracy: @(w.Weapon.MinAccuracy)% - @(w.Weapon.MaxAccuracy)%</div>
+        <div>Range: @(w.Weapon.MinRange) - @(w.Weapon.MaxRange)</div>
+        <div>Movement Penalty: @(w.Weapon.MovementPenalty)</div>
+        <div>Standard Penalty: @(w.Weapon.StandardPentaly)</div>
+        
+    </li>
+}
+</ul>
+</div>
+
+
+<div>
+<div class="font_gst">Armor:</div>
+<ul class="font_gst">
+@foreach (var a in equiped_armor)
+{
+    <li>
+        <div>@(a.Armor.Name)</div>
+        <div>Regen Rate: @(a.Armor.RegenRate)</div>
+        <div>Max Armor: @(a.Armor.MaxArmor)</div>
+        <div>Recharge Rate: @(a.Armor.RechargeRate)</div>
+        <div>Movement Penalty: @(a.Armor.MovementPenalty)</div>
+        <div>Standard Penalty: @(a.Armor.StandardPentaly)</div>
+        <div>Movement Bonus: @(a.Armor.MovementBonus)</div>
+        <div>Standard Bonus: @(a.Armor.StandardBonus)</div>
+    </li>
+}
+</ul>
+</div>
+
+</div>
+
+@code {
+
+    public PlayerChar pc = new PlayerChar();
+
+    public IList<LootGenerator> holsters = new List<LootGenerator>();
+    public IList<LootGenerator> equiped_armor = new List<LootGenerator>();
+
+    
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if ( firstRender )
+        {
+            pc.SetStartingSkills();
+
+            holsters.Add(new LootGenerator(pc,1));
+            holsters.Add(new LootGenerator(pc,1));
+            holsters.Add(new LootGenerator(pc,1));
+            holsters.Add(new LootGenerator(pc,1));
+
+            equiped_armor.Add(new LootGenerator(pc,2));
+            equiped_armor.Add(new LootGenerator(pc,2));
+            equiped_armor.Add(new LootGenerator(pc,2));
+            equiped_armor.Add(new LootGenerator(pc,2));
+            StateHasChanged();
+        }
+    }
+
+
+
+    
+
+
+}

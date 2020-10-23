@@ -1,0 +1,35 @@
+<div class="combat_container">
+
+    <div class="roll_box">
+        @for( var i = 0; i < 48; i++ )
+        {
+            <div class="dice_box">
+                <Dice DiceID="@(i)" />
+            </div>
+        }
+    </div>
+    <div class="outcomes font-gst">
+        <div class="hit_count outcome_bin">
+            <div class="score_box">24</div>
+            <div class="hit_mark"></div>
+        </div>
+        <div class="miss_count outcome_bin">
+            <div class="score_box">24</div>
+            <div class="miss_mark"></div>
+        </div>
+        <div class="bonuses outcome_bin">
+            <div class="score_box bonus_bin"></div>
+            <div class="bonus_mark"></div>
+        </div>
+        <div class="bonus_description outcome_bin">
+            
+        </div>
+    </div>
+
+</div>
+
+
+@code {
+
+
+}

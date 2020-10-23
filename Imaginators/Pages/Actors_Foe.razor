@@ -1,0 +1,68 @@
+<li class="foe_pod">
+    <div class="foe_avatar">
+        <img />
+        <div @onclick="StartCombat" class="combat_button avatar_buttons"><img src="/Media/Images/ATK_Sil.png"></div>
+        <div class="debuff_button avatar_buttons"><img src="/Media/Images/DBF_Sil.png"></div>
+    </div>
+    <div class="foe_details">
+        <div class="foe_header font_gst">
+            <ul>
+                <li>HP: @this_foe.hp.Current / @this_foe.hp.Max</li>
+                <li>Armor: @this_foe.armor.Current / @this_foe.armor.Max</li>
+                <li>Faction: @this_foe.Faction</li>
+            </ul>
+        </div>
+        <div class="foe_body font_rubik">
+            <ul>
+                <li>
+                    <ul class="foe_body_list">
+                        <li>Speed:</li>
+                        <li>Range:</li>
+                        <li>Damage:</li>
+                        <li>Hits:</li>
+                        <li>AOE:</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="foe_body_list second_list">
+                        <li>Effect:</li>
+                        <li><br></li>
+                        <li>Status:</li>
+                        <li>Active Buff:</li>
+                        <li>Active Debuff:</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="view_foe font_gst">
+            View Foe
+        </div>
+        <div class="foe_name font_gst">@this_foe.Name</div>
+    </div>
+</li>
+
+@code {
+    [CascadingParameter] Zone_Actors Foe_Control { get; set; }
+    [Parameter] public int FoeID { get; set; }
+    private Foe this_foe = new Foe();
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            this_foe = Foe_Control.Foes[FoeID];
+            
+            @* this_foe.Name = "Velociprator";
+            this_foe.Faction = "Dinosaurs";
+            this_foe.hp.Current = 39;
+            this_foe.hp.Max = 120;
+            this_foe.armor.Current = 0;
+            this_foe.armor.Max = 200; *@
+        }
+    }
+
+    private void StartCombat(MouseEventArgs e)
+    {
+        Foe_Control.StartCombat( this_foe.Name );
+    }
+}

@@ -1,0 +1,16 @@
+li {
+    list-style: none;
+}
+
+.direction {
+    position: absolute;
+    background-color: #6a6a6a;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, .3);
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.North { top: -30px; width: 400px; height: 30px; }
+.South { bottom: -30px; width: 400px; height: 30px; }
+.East { right: -30px; width: 30px; height: 400px; }
+.West { left: -30px; width: 30px; height: 400px; }

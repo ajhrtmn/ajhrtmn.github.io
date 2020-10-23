@@ -1,0 +1,43 @@
+.pack_nodes {
+    list-style: none;
+    padding: none;
+    margin: none;
+    width:800px;
+    height:800px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+ul {
+    padding-left: 0%;
+    padding: none;
+    margin: none;
+}
+
+li {
+    padding-left: 0%;
+    padding: none;
+    margin: none;
+}
+
+.pack_node {
+    width: 6.25%;
+    height: 6.25%;
+    padding: none;
+    margin: none;
+}
+
+.node_div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.node_div img {
+    width: 90%;
+    border-radius: 10px;
+}

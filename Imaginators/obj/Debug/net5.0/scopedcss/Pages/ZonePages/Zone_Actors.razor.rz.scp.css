@@ -1,0 +1,25 @@
+.actor_container[b-zw3e58mypl] {
+    width: 564px;
+    height: 550px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.foes[b-zw3e58mypl] {
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 1%;
+    width: 98%;
+    height: 99%;
+    border-radius: 15px;
+}
+
+.foe_list[b-zw3e58mypl] {
+    padding: 0px;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}

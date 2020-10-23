@@ -1,0 +1,31 @@
+
+<li class="north direction" style="background-color: @(is_door);"></li>
+<li class="south direction" style="background-color: @(is_door);"></li>
+<li class="east direction" style="background-color: @(is_door);"></li>
+<li class="west direction" style="background-color: @(is_door);"></li>
+
+
+
+@code {
+    [Parameter] public string EnteredFrom { get; set; }
+    [Parameter] public string ThisWallType {get; set; }
+    
+    private Wall this_wall = new Wall();
+
+    
+
+    private string is_door = "";
+
+    
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            
+            if ( this_wall.WallType == "Doorway" ) { is_door = "#493311"; }
+            this_wall.WallType = ThisWallType;
+            if ( this_wall.WallType == "Open" ) { is_door = "rgba(129, 129, 129, 0.3)"; }
+        }
+    }
+}

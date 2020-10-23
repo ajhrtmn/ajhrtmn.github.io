@@ -1,0 +1,69 @@
+<CascadingValue Value="this">
+
+
+<div class="popover_section popover_left font_gst @show_lists">
+    <div class="popover_heading">Friendlies</div>
+    <div class="popover_content actor_container">
+        
+    </div>
+</div>
+
+<div class="popover_section popover_right font_gst @show_lists">
+    <div class="popover_heading">Foes</div>
+    <div class="popover_content actor_container">
+        <div class="foes">
+            <ul class="foe_list">
+
+                @for (var f = 0; f <= Foes.Count - 1; f++)
+                {
+                    <Actors_Foe FoeID="@(f)"/>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="popover_section popover_full font_gst @show_combat">
+    <div class="popover_heading">Roll For Damage!</div>
+    <div class="popover_content">
+        <Combat />
+    </div>
+</div>
+
+
+</CascadingValue>
+
+
+@code {
+
+    public string show_lists = "";
+    public string show_combat = " unloaded";
+
+    public IList<Foe> Foes = new List<Foe>();
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Foes.Add(new Foe{   
+                Name = "Velociraptor",
+                Faction = "Dinosaurs",
+                hp = new Foe.HP(200,200),
+                armor = new Foe.Armor(200,200)
+            });
+        }
+    }
+    public Foe Enemy_Combatant = new Foe();
+
+    public void StartCombat(string n)
+    {
+        show_lists = " unloaded";
+        show_combat = "";
+        Enemy_Combatant.Name = n;
+        StateHasChanged();
+    }
+
+}

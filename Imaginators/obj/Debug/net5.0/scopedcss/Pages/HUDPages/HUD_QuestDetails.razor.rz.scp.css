@@ -1,0 +1,100 @@
+.quest_details[b-mvv7q31hwi] {
+    position: absolute;
+    top: 35px;
+    left: 50px;
+    height: 160px;
+    width: 305px;
+    background-color: rgba(50, 50, 50, 0.75);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 5px 5px 10px #333;
+}
+
+ul[b-mvv7q31hwi] {
+    position: absolute;
+    bottom: 5%;
+    left: 3%;
+    display: flex;
+    margin-left: -40px;
+    margin-bottom: 0px;
+}
+
+li[b-mvv7q31hwi] {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    border-width: 3px;
+    border-color: gray;
+    border-style: solid;
+    background-color: rgba(60, 60, 60, 0.75);
+    list-style: none;
+    margin-right: 5px;
+}
+
+li:last-child[b-mvv7q31hwi] {
+    width: 74px;
+    background-color: rgba(50, 7, 7, 0.75);
+    margin-right: 0px;
+    border-color: grey;
+}
+
+.turn_order_label[b-mvv7q31hwi] {
+    position: absolute;
+    left: 3%;
+    bottom: 35%;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.quest_time[b-mvv7q31hwi] {
+    position: absolute;
+    right: 4%;
+    bottom: 35%;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.difficulty[b-mvv7q31hwi] {
+    position: absolute;
+    right: 3%;
+    top: 20%;
+    font-size: .8em;
+    font-weight: 400;
+}
+
+.quest_title[b-mvv7q31hwi] {
+    position: absolute;
+    right: 3%;
+    top: 3%;
+    font-size: 1.25em;
+    font-weight: 300;
+}
+
+.round_count[b-mvv7q31hwi] {
+    position: absolute;
+    left: 16%;
+    top: 18%;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.round[b-mvv7q31hwi] {
+    position: absolute;
+    top: 5%;
+    left: 3%;
+    width: 50px;
+}
+
+@media only screen 
+  and (min-width: 320px) 
+  and (max-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    .quest_details[b-mvv7q31hwi] {
+        box-shadow: 5px 5px 10px #3333335d;
+        transform: scale(.75,.75);
+        top: -5px;
+        left: 9px;
+    }
+
+}
